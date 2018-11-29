@@ -30,3 +30,24 @@
     transform: rotate(360deg);
   }
 }
+
+.App-bg-color-lightgrey {
+  background-color: #B4B4B4;
+}
+.App-bg-color-black {
+  background-color: #1A1A1A;
+}
+.App-bg-color-white {
+  background-color: #FEFEFE;
+}
+
+.App-color-lightgrey {
+  color: #B4B4B4;
+}
+.App-color-black {
+  color: #1A1A1A;
+}
+.App-color-white {
+  color: #FEFEFE;
+}
+
