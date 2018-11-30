@@ -8,7 +8,6 @@ class ChirpCard extends Component {
         super(props);
         this.state = {
             visible: true,
-            chirpObject: this.props.newChirp
         }
     }
     render() {

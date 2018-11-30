@@ -50,24 +50,21 @@ class ChirpInput extends Component {
         }
     }
 
-
     render() {
         return (
             <InputGroup>
-                <InputGroupAddon addonType="prepend">New Chirp</InputGroupAddon>
+                <InputGroupAddon addonType="prepend">Edit</InputGroupAddon>
                 <Input
                     type='text'
-                    onChange={(event) => { this.handleInputChange(event.target.value) }}
                     placeholder="Min. 240 characters"
+                    onChange={(event) => { this.handleInputChange(event.target.value) }}
                 />
                 <InputGroupAddon addonType="append">
                     <Button onClick={this.handleSubmit}>chirp it.</Button>
                 </InputGroupAddon>
-
             </InputGroup>
         );
     }
 }
-
 
 export default ChirpInput;

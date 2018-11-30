@@ -1,6 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment, ReactSVG, ReactSVGElement } from 'react';
 import '../../index.css';
 import ChirpHandler from './ChirpHandler';
+import { Row, Col, Container } from 'reactstrap';
 
 
 
@@ -15,9 +16,13 @@ class AppBody extends Component {
     render() {
         return (
             <Fragment>
-                <div className='row'>
-                    <ChirpHandler className='col-6' />
-                </div>
+                <Container>
+                    <Row>
+                        <Col>
+                            <ChirpHandler />
+                        </Col>
+                    </Row>
+                </Container>
             </Fragment>
         )
     }
