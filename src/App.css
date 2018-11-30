@@ -1,27 +1,79 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
+/* ================== App Themes & Utility Classes ================== */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Themed Color Palette */
+.theme-bg-color-lightgrey {
+  background-color: #B4B4B4;
 }
-
+.theme-bg-color-black {
+  background-color: #1A1A1A;
+}
+.theme-bg-color-white {
+  background-color: #FEFEFE;
+}
+.theme-color-lightgrey {
+  color: #B4B4B4;
+}
+.theme-color-black {
+  color: #1A1A1A;
+}
+.theme-color-white {
+  color: #FEFEFE;
+}
 .App-link {
   color: #61dafb;
 }
 
+/* Layout & Alignment Tools */
+.col-centered{
+  float: none;
+  margin: 0 auto;
+}
+
+
+/* ======================== Component Styles ======================== */
+
+
+/* App Global Styles */
+.App {
+  text-align: center;
+}
+
+/* App Logo */
+.App-logo {
+  height: 8vh;
+}
+.logo-wrapper {
+  height: 8vh;
+}
+
+/* Header Components */
+.App-header {
+  margin-bottom: 0.5em;
+  background-color: #1A1A1A;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Alfa Slab One', cursive;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+/* Chirp Card Components */
+ChirpCard {
+  width: 100%;
+  margin: 0 auto;
+}
+.chirp-card-title {
+  font-size: 1em;
+}
+.chirp-card-text {
+  font-size: 0.8em;
+}
+
+/* Animations */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -31,23 +83,19 @@
   }
 }
 
-.App-bg-color-lightgrey {
-  background-color: #B4B4B4;
-}
-.App-bg-color-black {
-  background-color: #1A1A1A;
-}
-.App-bg-color-white {
-  background-color: #FEFEFE;
+
+/* ======================== Bootstrap Edits ======================== */
+
+
+.list-group-item {
+  padding: 0;
+  margin: 0.5em;
+  border: none;
 }
 
-.App-color-lightgrey {
-  color: #B4B4B4;
-}
-.App-color-black {
-  color: #1A1A1A;
-}
-.App-color-white {
-  color: #FEFEFE;
-}
+
+
+
+
+
 
