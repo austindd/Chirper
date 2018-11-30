@@ -1,5 +1,8 @@
+import React from 'react';
 
-export const SVG = ({
+
+
+export const SVGIcon = ({
     className = '',
     style = {},
     fill = '#fff',
@@ -21,4 +24,4 @@ export const SVG = ({
 
 
 
-export default SVG;
+export default SVGIcon;

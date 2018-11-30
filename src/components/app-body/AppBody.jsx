@@ -2,6 +2,8 @@ import React, { Component, Fragment, ReactSVG, ReactSVGElement } from 'react';
 import '../../index.css';
 import ChirpHandler from './ChirpHandler';
 import { Row, Col, Container } from 'reactstrap';
+import MaterialIcon, {colorPalette} from 'material-icons-react';
+
 
 
 
@@ -19,6 +21,7 @@ class AppBody extends Component {
                 <Container>
                     <Row>
                         <Col>
+                            
                             <ChirpHandler />
                         </Col>
                     </Row>

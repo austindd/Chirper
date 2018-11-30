@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import AppBody from './components/app-body/AppBody.jsx';
-import eagleLogoDark from './components/images/eagle-logo-dark.png';
 import eagleLogoWhite from './components/images/eagle-logo-white.png';
-import eagleLogoLightGrey from './components/images/eagle-logo-lightgrey.png';
-
+import MaterialIcon, { colorPalette } from 'material-icons-react';
 
 
 class App extends Component {
@@ -19,7 +17,11 @@ class App extends Component {
             <img src={eagleLogoWhite} className='App-logo' />
           </div>
           <h2 className="col-6 theme-color-white">chirper</h2>
-          <div className='col-3'></div>
+          <div className='col-3'>
+            <div className='icon-wrapper col-centered'>
+              <MaterialIcon icon='dehaze' color='#FEFEFE' size={60} />
+            </div>
+          </div>
         </header>
         <AppBody />
       </div>

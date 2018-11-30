@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { InputGroup, Input, Button, InputGroupAddon, InputGroupButtonDropdown, InputGroupText } from 'reactstrap';
 import Chirp from '../shared/Chirp';
+import MaterialIcon, {colorPalette} from 'material-icons-react';
+
 
 class ChirpInput extends Component {
     constructor(props) {
@@ -53,8 +55,9 @@ class ChirpInput extends Component {
     render() {
         return (
             <InputGroup>
-                <InputGroupAddon addonType="prepend">Edit</InputGroupAddon>
+
                 <Input
+                    className='chirp-text-input'
                     type='text'
                     placeholder="Min. 240 characters"
                     onChange={(event) => { this.handleInputChange(event.target.value) }}
