@@ -1,11 +1,7 @@
-import React, { Component, Fragment, ReactSVG, ReactSVGElement } from 'react';
+import React, { Component } from 'react';
 import '../../index.css';
 import ChirpHandler from './ChirpHandler';
 import { Row, Col, Container } from 'reactstrap';
-import MaterialIcon, {colorPalette} from 'material-icons-react';
-
-
-
 
 class AppBody extends Component {
     constructor(props) {
@@ -17,20 +13,15 @@ class AppBody extends Component {
     }
     render() {
         return (
-            <Fragment>
-                <Container>
-                    <Row>
-                        <Col>
-                            
-                            <ChirpHandler />
-                        </Col>
-                    </Row>
-                </Container>
-            </Fragment>
+            <Container>
+                <Row>
+                    <Col>
+                        <ChirpHandler />
+                    </Col>
+                </Row>
+            </Container>
         )
     }
 }
-
-
 
 export default AppBody;

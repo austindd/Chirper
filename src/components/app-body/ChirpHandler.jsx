@@ -3,7 +3,6 @@ import '../../index.css';
 import Chirp from '../shared/Chirp';
 import ChirpInput from './ChirpInput.jsx';
 import ChirpFeed from './ChirpFeed.jsx';
-import ChirpCard from './ChirpCard.jsx';
 
 // ChirpHandler's sole function is to provide a parent for input and output components to sync state properties.
 // ChirpHandler provides the 'newChirp' object to its children for read/write/display functions.
