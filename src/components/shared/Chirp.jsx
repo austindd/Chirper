@@ -8,7 +8,6 @@ export class Chirp {
         this.text = text;
         this.image = image;
         this.link = link;
-        this.element = element;
         this.validCheck = () => {
             if (this.key === null) {
                 return false

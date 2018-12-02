@@ -10,7 +10,11 @@ const AppHeader = (props) => {
                     <img className='App-logo' src={eagleLogoWhite} alt='eagle-logo-white' />
                 </div>
             </div>
-            <h2 className="col-6 theme-color-white">chirper</h2>
+            <div className='col-6'>
+                <div className="app-title-wrapper d-flex align-items-center">
+                    <h2 className="app-title theme-color-white">chirper</h2>
+                </div>
+            </div>
             <div className='col-3'>
                 <AppMenuButton />
             </div>

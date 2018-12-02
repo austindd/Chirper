@@ -1,17 +1,14 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import '../../index.css';
-import Chirp from '../shared/Chirp';
 import ChirpInput from './ChirpInput.jsx';
 import ChirpFeed from './ChirpFeed.jsx';
+import { Row, Col, Container } from 'reactstrap';
 
-// ChirpHandler's sole function is to provide a parent for input and output components to sync state properties.
-// ChirpHandler provides the 'newChirp' object to its children for read/write/display functions.
+// ChirpHandler lifts state from ChirpInput and passes the lifted data to ChirpFeed for rendering
 
 class ChirpHandler extends Component {
     constructor(props) {
         super(props);
-
-
         this.state = {
             newChirp: null,
             chirpArray: [],
@@ -22,14 +19,10 @@ class ChirpHandler extends Component {
         this.handleNewChirp = this.handleNewChirp.bind(this);
     }
 
-
-
-
-    handleNewChirp(submission) {
+    handleNewChirp(submission) { // submission value passed from ChirpInput (child component)
         // pushing old array states into temp variables to be used in setState()
         let newArray = this.state.chirpArray;
         newArray.push(submission);
-
         let newKeys = this.state.chirpKeys;
         newKeys.push(submission.key)
 
@@ -45,26 +38,35 @@ class ChirpHandler extends Component {
     };
 
     render() {
-        let chirpTemplate = new Chirp();
+
+        // new key set everytime ChirpHandler renders
         let generateNewKey = this.state.chirpKeys ? String(10000000000000 + this.state.chirpKeys.length) : String(10000000000000);
+        
         return (
-            <Fragment>
-                <ChirpInput
-                    // Giving access 
-                    nextKey={generateNewKey}
-                    // Hard coding valid input data for testing purposes
-                    user='Austin'
-                    type='default'
-                    text={null}
-                    // Sending ChirpInput a callback function to lift state
-                    handleNewChirp={this.handleNewChirp}
-                />
-                <ChirpFeed
-                    newChirp={this.state.newChirp}
-                    chirpArray={this.state.chirpArray}
-                    chirpKeys={this.state.chirpKeys}
-                />
-            </Fragment>
+            <Container id='chirp-handler'>
+                <Row id='chirp-input-row'>
+                    <Col sm='12' md='12' lg={{ size: 6, offset: 3 }}>
+                        <ChirpInput
+                            nextKey={generateNewKey}
+                            // Hard coding valid input data for testing purposes
+                            user='Austin'
+                            type='default'
+                            text={null}
+                            // Sending ChirpInput a callback function to lift state
+                            handleNewChirp={this.handleNewChirp}
+                        />
+                    </Col>
+                </Row>
+                <Row id='chirp-feed-row'>
+                    <Col sm='12' md='12' lg={{ size: 6, offset: 3 }}>
+                        <ChirpFeed
+                            newChirp={this.state.newChirp}
+                            chirpArray={this.state.chirpArray}
+                            chirpKeys={this.state.chirpKeys}
+                        />
+                    </Col>
+                </Row>
+            </Container>
         );
     }
 }

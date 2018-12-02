@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import '../../index.css';
-import { ListGroup, ListGroupItem, ListGroupItemText } from 'reactstrap';
+import { ListGroup, ListGroupItem } from 'reactstrap';
 import ChirpCard from './ChirpCard.jsx';
+import { TransitionGroup } from 'react-transition-group';
+import ChirpCardWrapper from './ChirpCardWrapper';
 
 
 class Feed extends Component {
@@ -12,6 +14,7 @@ class Feed extends Component {
             chirpArray: this.props.chirpArray,
         }
         this.newChirp = this.props.newChirp;
+        this.chirpCardWrapper = new ChirpCardWrapper;
     }
 
     render() {
@@ -24,7 +27,9 @@ class Feed extends Component {
             chirpElements = this.state.chirpArray.map((item) => {
                 return (
                     <ListGroupItem key={item.key}>
-                        <ChirpCard newChirp={item} />
+                        <TransitionGroup>
+                            <ChirpCard newChirp={item} container={ChirpCardWrapper()}/>
+                        </TransitionGroup>
                     </ListGroupItem>
                 );
             });
@@ -34,8 +39,8 @@ class Feed extends Component {
 
         // Render chirp feed
         return (
-            <div className='feed-container text-center'>
-                <ListGroup className="w-50 col-centered">{chirpElements}</ListGroup>
+            <div className='feed-container'>
+                <ListGroup className="col-centered">{chirpElements}</ListGroup>
             </div>
         );
 
