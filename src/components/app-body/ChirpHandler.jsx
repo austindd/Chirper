@@ -20,6 +20,7 @@ class ChirpHandler extends Component {
     }
 
     handleNewChirp(submission) { // submission value passed from ChirpInput (child component)
+
         // pushing old array states into temp variables to be used in setState()
         let newArray = this.state.chirpArray;
         newArray.push(submission);
@@ -34,39 +35,39 @@ class ChirpHandler extends Component {
                 chirpKeys: newKeys
             }
         });
-        console.log(submission);
     };
 
     render() {
-
         // new key set everytime ChirpHandler renders
         let generateNewKey = this.state.chirpKeys ? String(10000000000000 + this.state.chirpKeys.length) : String(10000000000000);
-        
+
         return (
-            <Container id='chirp-handler'>
-                <Row id='chirp-input-row'>
-                    <Col sm='12' md='12' lg={{ size: 6, offset: 3 }}>
-                        <ChirpInput
-                            nextKey={generateNewKey}
-                            // Hard coding valid input data for testing purposes
-                            user='Austin'
-                            type='default'
-                            text={null}
-                            // Sending ChirpInput a callback function to lift state
-                            handleNewChirp={this.handleNewChirp}
-                        />
-                    </Col>
-                </Row>
-                <Row id='chirp-feed-row'>
-                    <Col sm='12' md='12' lg={{ size: 6, offset: 3 }}>
-                        <ChirpFeed
-                            newChirp={this.state.newChirp}
-                            chirpArray={this.state.chirpArray}
-                            chirpKeys={this.state.chirpKeys}
-                        />
-                    </Col>
-                </Row>
-            </Container>
+            <div id='app-body'>
+                <Container id='chirp-handler'>
+                    <Row id='chirp-input-row'>
+                        <Col sm='12' md='12' lg={{ size: 6, offset: 3 }}>
+                            <ChirpInput
+                                nextKey={generateNewKey}
+                                // Hard coding valid input data for testing purposes
+                                user='Player 1'
+                                type='default'
+                                text={null}
+                                // Sending ChirpInput a callback function to lift state
+                                handleNewChirp={this.handleNewChirp}
+                            />
+                        </Col>
+                    </Row>
+                    <Row id='chirp-feed-row'>
+                        <Col sm='12' md='12' lg={{ size: 6, offset: 3 }}>
+                            <ChirpFeed
+                                newChirp={this.state.newChirp}
+                                chirpArray={this.state.chirpArray}
+                                chirpKeys={this.state.chirpKeys}
+                            />
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
         );
     }
 }

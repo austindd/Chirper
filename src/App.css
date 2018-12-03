@@ -51,8 +51,14 @@
 
 /* Header Components */
 .App-header {
-  margin-bottom: 0.5em;
+  position: fixed;
+  top: 0px;
+  z-index: 2000;
+  width: 100%;
+  height: 10vh;
+  margin: 0;
   background-color: #1A1A1A;
+  opacity: 0.9;
   min-height: 10vh;
   display: flex;
   flex-direction: row;
@@ -87,40 +93,116 @@
   background-color:  color='1A1A1A';
 }
 #header-menu-icon {
-  padding-top: calc();
+  padding-top: auto;
+}
+.header-dropdown-menu {
+  opacity: 1.1;
+  z-index: 1000;
+}
+
+.menu-dropdown-item {
+  width: 80%;
+  padding: 10% 0 10% 0;
+  margin: 0 10% 0 10%;
+  -webkit-transition-duration: 0.2s;
+  -webkit-transition-property: transform;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
+  transition-property: transform;
+  transition-timing-function: ease-in-out;
+}
+.menu-dropdown-item:hover {
+  width: 80%;
+  padding: 10% 0 10% 0;
+  margin: 0 10% 0 10%;
+  transform: scale(1.05, 1);
+  -webkit-transition-duration: 0.2s;
+  -webkit-transition-property: transform;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
+  transition-property: transform;
+  transition-timing-function: ease-in-out;
+}
+.menu-dropdown-divider {
+  margin: 0;
 }
 
 
+/* ======================= App Body Components ======================= */
 
-/* Chirp Input Components */
+/* Main Body */
+#app-body {
+  position: fixed;
+  top: calc(0px + 10vh);
+  width: 100%;
+  height: 90vh;
+  overflow-y: auto;
+}
 
+#chirp-handler {
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+
+/* Input Components */
 #chirp-text-input {
-  height: 5em;
+  height: 4em;
+}
+#chirp-submit-button {
+  background-color: #1A1A1A;
+  opacity: 0.9;
 }
 
 
 /* Chirp Card Components */
-ChirpCard {
+.chirp-card {
   width: 100%;
-  margin: 0 auto;
+  margin: 5px auto;
 }
 .chirp-card-title {
   font-size: 1em;
 }
 .chirp-card-text {
-  font-size: 0.8em;
+  font-size: 1.4em;
+  float: left;
+  margin-left: 5%;
+  margin-right: 5%;
 }
-
-/* Animations */
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.chirp-wrapper {
+  position: relative;
+  width: 100%;
+  height: fit-content;
 }
-
+.chirp-hide {
+  transform: translate(0,-20px);
+  background-color: #FEFEFE;
+  color: #1A1A1A;
+  opacity: 0;
+  -webkit-transition-property: background-color font-size transform -webkit-transform color;
+  -webkit-transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-property: background-color color transform -webkit-transform color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.chirp-show {
+  transform: translate(0, 0);
+  -webkit-transform: translate(0, 0);
+  background-color: #1A1A1A;
+  color: #FEFEFE;
+  opacity: 0.9;
+  -webkit-transition-property: background-color color transform -webkit-transform color;
+  -webkit-transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-property: transform -webkit-transformv color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.chirp-show:hover {
+  transform: scale(1.05, 1.05);
+  border: 3px solid #282828;
+}
 
 /* ====================== Bootstrap Class Edits ====================== */
 
@@ -130,7 +212,6 @@ ChirpCard {
   margin: 0.5em;
   border: none;
 }
-
 .dropdown-menu {
   font-family: 'Antic', sans-serif !important;
 }

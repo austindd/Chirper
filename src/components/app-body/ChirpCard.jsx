@@ -1,33 +1,26 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardText, CardBody, CardLink, CardTitle, CardSubtitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 import '../../index.css';
-
-
 
 class ChirpCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            visible: false,
+            visible: 'chirp-hide',
             container: this.container,
+            newChirp: this.props.newChirp,
         }
     }
 
-    // componentWillEnter (callback) {
-    //     const el = this.container;
-    //     TweenMax.fromTo(el, 0.3, {y: 100, opacity: 0}, {y: 0, opacity: 1, onComplete: callback});
-    //   }
-    
-    // componentWillLeave (callback) {
-    //     const el = this.container;
-    //     TweenMax.fromTo(el, 0.3, {y: 0, opacity: 1}, {y: -100, opacity: 0, onComplete: callback});
-    //   }
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({ visible: 'chirp-show' });
+        }, 10);
+    }
 
     render() {
-        console.log(this.state);
         return (
-            
-            <Card className="chirp-card col-centered">
+            <Card key={this.props.newChirp.key} className={"chirp-card col-centered " + this.state.visible}>
                 <CardBody>
                     <CardTitle className='chirp-card-title'>{this.props.newChirp.user}</CardTitle>
                     <CardText className='chirp-card-text'>{this.props.newChirp.text}</CardText>

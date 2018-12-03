@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Form, FormGroup, Label, FormText, InputGroup, Input, Button, InputGroupAddon, InputGroupButtonDropdown, InputGroupText } from 'reactstrap';
+import { FormGroup, Label, InputGroup, Input, Button, InputGroupAddon } from 'reactstrap';
 import Chirp from '../shared/Chirp';
-import MaterialIcon, {colorPalette} from 'material-icons-react';
 
 class ChirpInput extends Component {
     constructor(props) {
@@ -14,7 +13,7 @@ class ChirpInput extends Component {
             nextKey: this.props.nextKey,    // Passed from Chirp Handler, which keeps track of all chirp keys
             user: this.props.user,          // Passed from Chirp Handler
             type: 'text',
-            text: null,
+            text: '',
             image: null,
             link: null,
         }
@@ -23,12 +22,12 @@ class ChirpInput extends Component {
         this.handleInputKeyPress = this.handleInputKeyPress.bind(this);
     }
 
+    handleSubmit() {
     /*
     - Handles chirp submission from submit button and [Enter] key
     - Compiles state data into new Chirp object and validates data
     - Passes new Chirp submission to parent function for handling/rendering
     */
-    handleSubmit() {
         let submission = new Chirp(
             this.props.nextKey, // not modified by ChirpInput
             this.props.user,    // not modified by ChirpInput
@@ -37,12 +36,10 @@ class ChirpInput extends Component {
             this.state.image,
             this.state.link,
         );
-        console.log(submission);
-
         // Validate and submit
         submission.validCheck() === true ? this.props.handleNewChirp(submission) // Callback function passed from ChirpHandler, returns new Chirp object back to ChirpHandler
             : console.log("error_invalid_chirp_object: ", submission);
-        
+        this.setState({ text: '' }); // reset input field
     }
 
     // Handles text input box
@@ -53,52 +50,29 @@ class ChirpInput extends Component {
     }
     // Checks for [Enter] keypress
     handleInputKeyPress(event) {
-        console.log(event);
         return (event.charCode === 13 ? this.handleSubmit() : false);
     }
-
-
 
     render() {
         return (
             <FormGroup>
                 <Label for='chirp-text-input'>{this.state.formLabel}</Label>
                 <InputGroup className='col-centered'>
-                <Input
-                    id='chirp-text-input'
-                    type='textarea'
-                    placeholder="Min. 240 characters"
-                    onChange={(event) => { this.handleInputChange(event.target.value) }}
-                    onKeyPress={(event) => {this.handleInputKeyPress(event)}}
-                />
-                <InputGroupAddon addonType="append">
-                    <Button onClick={this.handleSubmit}>chirp it.</Button>
-                </InputGroupAddon>
-            </InputGroup>
-
+                    <Input
+                        id='chirp-text-input'
+                        type='text'
+                        placeholder="Min. 240 characters"
+                        value={this.state.text}
+                        onChange={(event) => { this.handleInputChange(event.target.value) }}
+                        onKeyPress={(event) => { this.handleInputKeyPress(event) }}
+                        onSubmit={(event) => { this.handleSubmit(event) }}
+                    />
+                    <InputGroupAddon addonType="append">
+                        <Button type='submit' id='chirp-submit-button' onClick={this.handleSubmit}>chirp it.</Button>
+                    </InputGroupAddon>
+                </InputGroup>
             </FormGroup>
         )
-
-
-
-
-
-
-
-        // return (
-            // <InputGroup className='col-centered'>
-            //     <Input
-            //         className='chirp-text-input'
-            //         type='text'
-            //         placeholder="Min. 240 characters"
-            //         onChange={(event) => { this.handleInputChange(event.target.value) }}
-            //         onKeyPress={(event) => {this.handleInputKeyPress(event)}}
-            //     />
-            //     <InputGroupAddon addonType="append">
-            //         <Button onClick={this.handleSubmit}>chirp it.</Button>
-            //     </InputGroupAddon>
-            // </InputGroup>
-        // );
     }
 }
 

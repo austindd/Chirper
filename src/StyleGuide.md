@@ -8,7 +8,7 @@
 | white | FEFEFE |
 
 
-## Font Families:
+## Imported Font Families:
 - font-family: 'Pacifico', cursive;
 - font-family: 'Lobster', cursive;
 - font-family: 'Abril Fatface', cursive;

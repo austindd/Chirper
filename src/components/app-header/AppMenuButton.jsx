@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MaterialIcon from 'material-icons-react';
-import { ButtonDropdown, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 class AppMenuButton extends Component {
     constructor(props) {
@@ -57,23 +57,21 @@ class AppMenuButton extends Component {
                         onMouseUp={(event) => { this.handleMouseUp(event.target) }}
                         onClick={(event) => { this.handleClick(event.target) }}
                     >
-                        <MaterialIcon id='header-menu-icon' icon='dehaze' color='#FEFEFE' size={55} />
+                        <MaterialIcon id='header-menu-icon' icon='dehaze' color='#FEFEFE' size={50} />
                     </div >
-
                 </DropdownToggle>
-                <DropdownMenu right>
-                    <DropdownItem>Home</DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem>Friends</DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem>My Profile</DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem>Account Settings</DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem>Log Out</DropdownItem>
+                <DropdownMenu className='header-dropdown-menu'right>
+                    <DropdownItem className='menu-dropdown-item'>Home</DropdownItem>
+                    <DropdownItem divider className='menu-dropdown-divider' />
+                    <DropdownItem className='menu-dropdown-item'>Friends</DropdownItem>
+                    <DropdownItem divider className='menu-dropdown-divider' />
+                    <DropdownItem className='menu-dropdown-item'>My Profile</DropdownItem>
+                    <DropdownItem divider className='menu-dropdown-divider' />
+                    <DropdownItem className='menu-dropdown-item'>Account Settings</DropdownItem>
+                    <DropdownItem divider className='menu-dropdown-divider' />
+                    <DropdownItem className='menu-dropdown-item'>Log Out</DropdownItem>
                 </DropdownMenu>
             </Dropdown>
-
         )
     }
 }
