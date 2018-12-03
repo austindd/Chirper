@@ -1,7 +1,11 @@
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Dependencies:
+
+[React](https://reactjs.org/) (using [Create React App](https://github.com/facebook/create-react-app))
+
+[Bootstrap 4](https://getbootstrap.com/)
 
 [ReactStrap](https://reactstrap.github.io/)
 
